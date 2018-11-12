@@ -1,12 +1,38 @@
 import React, { Component } from 'react'
-import { Text, View, ScrollView, Image, TouchableOpacity } from 'react-native'
-import { Divider, Button } from 'react-native-elements'
+import {
+  Text,
+  View,
+  ScrollView,
+  Image,
+  TouchableOpacity,
+  ToastAndroid,
+} from 'react-native'
+import firebase from 'react-native-firebase'
+import { Divider } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from './styles/styles'
 
 class Details extends Component {
   static navigationOptions = {
     title: 'Details',
+  }
+
+  addToCart(item) {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        firebase.database().ref(`cart/${user.uid}`).push(item)
+        ToastAndroid.show(
+          `${item.name} of ${item.price} has been added to the cart.`,
+          ToastAndroid.SHORT,
+          ToastAndroid.BOTTOM,
+        );
+      } else {
+        this.showAlert(
+          'Authentication Error',
+          'Attempt to Log In Anonymously Failed. Please Try Again.',
+        )
+      }
+    });
   }
 
   render() {
@@ -37,7 +63,8 @@ class Details extends Component {
       </ScrollView>
       <View style={styles.bottomContainer} >
         <TouchableOpacity
-          style={styles.addButton}>
+            onPress={() => this.addToCart(menuItem)}
+            style={styles.addButton}>
           <Text style={styles.addText}>Add To Cart</Text>
           <Icon name="cart" size={20} color="white" style={{ margin: 5, color: 'black' }} />
         </TouchableOpacity>
