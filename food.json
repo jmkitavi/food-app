@@ -1,0 +1,7 @@
+[
+	{ "id": 0, "name": "Chips Masala", "price": 450, "picture": "http://www.pikachakula.com/wp-content/uploads/2016/09/Masala-Chips-007.jpg" },
+	{ "id": 1, "name": "Pizza", "price": 1000, "picture": "https://media.cdnws.com/_i/60780/104/1730/5/pizza-chorizo.jpeg" },
+	{ "id": 2, "name": "Ugali", "price": 300, "picture": "https://upload.wikimedia.org/wikipedia/commons/4/48/Ugali_%26_Sukuma_Wiki.jpg" },
+	{ "id": 3, "name": "Chicken Wings", "price": 900, "picture": "https://assets.epicurious.com/photos/5761c748ff66dde1456dfec0/2:1/w_1260%2Ch_630/crispy-baked-chicken-wings.jpg" },
+	{ "id": 4, "name": "Jollof Rice", "price": 500, "picture": "http://www.konbini.com/ng/files/2017/07/img_6601-2.jpg" }
+]
